@@ -1,0 +1,29 @@
+{
+  "name": "ti-longjohn",
+  "version": "0.0.1",
+  "description": "Longjohn rewrite for Titanium",
+  "author": {
+    "name": "Dr. Stefan Schimanski",
+    "email": "stefan.schimanski@gmail.com",
+    "url": "http://github.com/sttts/ti-longjohn"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sttts/ti-longjohn.git"
+  },
+  "main": "./ti-longjohn.js",
+  "license": "MIT",
+  "keywords": [
+    "titanium",
+    "appcelerator",
+    "longjohn",
+    "backtrace",
+    "async",
+    "stack",
+    "trace"
+  ],
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
