@@ -32,7 +32,7 @@ where `global` is the global namespace. If you require `ti-longjohn` from the
 
 ### Output
 
-When an exception is thrown, ti-longjohn will try to construct a long backtrace which can consist of multiple usual backtraces which are seperated by asyncronous callbacks, e.g. by `setTimeout`.
+When an exception is thrown, ti-longjohn will try to construct a long stack trace which can consist of multiple usual stack traces which are seperated by asyncronous callbacks, e.g. by `setTimeout`.
 
 The output looks like this:
 
@@ -61,6 +61,11 @@ The output looks like this:
 "#4 () at lib/async.js:122"
 ```
 
+To get a stack trace, ti-longjohn uses the `err.backtrace` property of an
+`Error` object thrown during an exception. It seems that JavaScriptCore in Titanium is not very verbose about function names (hence, the empty `()` in the stack traces).
+
+Moreover, it cannot be guaranteed by `ti-longjohn` that the stack traces are always complete.
+
 ### Use in production
 
 During execution of JavaScript code, ti-longjohn will keep a linked list of error objects in memory, each keeping a stack trace up to an async callback.
@@ -78,9 +83,9 @@ longjohn.async_trace_limit = -1;  // unlimited
 
 ### Patching async.js
 
-The queue mechanism in async.js breaks the backtrace chain that ti-longjohn tries to build and which it prints on error.
+The queue mechanism in async.js breaks the stack trace chain that ti-longjohn tries to build and which it prints on error.
 
-There is special support to patch the async.js queue in such a way that proper long backtraces are created:
+There is special support to patch the async.js queue in such a way that proper long stack traces are created:
 
 ```javascript
 var longjohn = require('ti-longjohn')(global);
@@ -98,7 +103,7 @@ q.push(42, function done() {
 });
 ```
 
-will lead to a long backtrace:
+will lead to a long stack trace:
 
 ```
 "TypeError at app.js:19",
