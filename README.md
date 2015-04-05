@@ -1,4 +1,4 @@
-# ti-longjohn [![Appcelerator Titanium](http://www-static.appcelerator.com/badges/titanium-git-badge-sq.png)]
+# ti-longjohn ![Appcelerator Titanium](http://www-static.appcelerator.com/badges/titanium-git-badge-sq.png)
 
 Long stack traces for Titanium with configurable call trace length.
 
@@ -13,6 +13,7 @@ In addition it has special support to patch [async.js](https://github.com/caolan
 ## Supports
 
 * iOS simulator and device
+* Android *is untested*, probably will not work because Titanium's Android support is based on V8, not JavaScriptCore.
 
 ## Usage
 
@@ -26,7 +27,8 @@ if (Ti.App.deployType !== 'production') {
 // ... your code
 ```
 
-where `global` is the global namespace. If you require `ti-longjohn` from the `app.js` file, pass `this` as the global parameter.
+where `global` is the global namespace. If you require `ti-longjohn` from the
+`app.js` file, pass `this` as the global parameter.
 
 ### Output
 
@@ -58,6 +60,14 @@ The output looks like this:
 "#3 () at models/thread.js:1687",
 "#4 () at lib/async.js:122"
 ```
+
+### Use in production
+
+During execution of JavaScript code, ti-longjohn will keep a linked list of error objects in memory, each keeping a stack trace up to an async callback.
+
+Moreover, in order to get a stack trace, a `try/catch` block is used which is known to be bad for performance.
+
+For these reason it is not recommended to have ti-longjohn activated in production.
 
 ### Limit traced async calls
 
