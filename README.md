@@ -54,7 +54,7 @@ The output looks like this:
 "#9 () at node_modules/nedb/node_modules/async/lib/async.js:728",
 "#10 () at node_modules/nedb/node_modules/async/lib/async.js:24",
 "#13 () at node_modules/process/index.js:14",
-"-------- async.push ---------",
+"-------- async.queue.push ---------",
 "#1 () at node_modules/nedb/lib/executor.js:56",
 "#2 () at node_modules/nedb/lib/datastore.js:568",
 "#3 () at models/thread.js:1687",
@@ -109,6 +109,6 @@ will lead to a long stack trace:
 "TypeError at app.js:19",
 "#2 () at node_modules/async/lib/async.js:809",
 "#5 () at node_modules/process/index.js:14",
-"-------- async.push ---------",
+"-------- async.queue.push ---------",
 "#1 () at app.js:23"
 ```
