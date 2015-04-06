@@ -15,6 +15,26 @@ In addition it has special support to patch [async.js](https://github.com/caolan
 * iOS simulator and device
 * Android *is untested*, probably will not work because Titanium's Android support is based on V8, not JavaScriptCore.
 
+## Installation
+
+Download the latest release via git from github:
+
+```bash
+git clone https://github.com/sttts/ti-longjohn.git
+```
+
+or use [gittio](http://gitt.io):
+
+```bash
+gittio install ti-longjohn
+```
+
+or use [npm](https://www.npmjs.com):
+
+```bash
+npm install ti-longjohn
+```
+
 ## Usage
 
 To use ti-longjohn, require it in your code (probably in some initialization code). That's all!
