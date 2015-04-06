@@ -18,7 +18,6 @@ module.exports = function(global) {
       --count;
     }
     if (trace != null) {
-      Ti.API.info('Dropping ti-longjohn frame');
       return delete trace.__previous__;
     }
   };
