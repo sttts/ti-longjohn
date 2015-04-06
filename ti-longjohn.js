@@ -145,7 +145,7 @@ module.exports = function(global) {
       // async.push which wraps the task data
       var _push = q.push;
       q.push = function (data, callback) {
-        var trace = create_trace('async.push');
+        var trace = create_trace('async.queue.push');
         return _push({
           data: data,
           previous_trace: trace
@@ -155,7 +155,7 @@ module.exports = function(global) {
       // async.unshift which wraps the task data
       var _unshift = q.push;
       q.unshift = function (data, callback) {
-        var trace = create_trace('async.unshift');
+        var trace = create_trace('async.queue.unshift');
         return _unshift({
           data: data,
           previous_trace: trace
