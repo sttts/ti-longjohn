@@ -13,6 +13,14 @@
   },
   "main": "./ti-longjohn.js",
   "license": "MIT",
+  "titaniumManifest": {
+    "name": "ti-longjohn",
+    "guid": "96b0e7e2-ea33-4601-869b-a992976ea4d9",
+    "moduleid": "ti-longjohn"
+  },
+  "engines": {
+    "titaniumsdk": ">= 3.4.1.GA"
+  },
   "keywords": [
     "titanium",
     "appcelerator",
